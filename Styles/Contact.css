@@ -1,0 +1,190 @@
+.contact {
+  color: #f4fa94;
+}
+.section-a {
+  font-size: 95.3px;
+  text-align: center;
+  margin-top: 3px;
+  line-height: 100px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 95px;
+  padding-top: 211.2px;
+}
+.nav-home,
+.nav-about,
+.nav-contact,
+.nav-twitter,
+.nav-facebook,
+.nav-instagram,
+.nav-linkedin,
+.nav-drrible,
+.profile,
+.twitter,
+.facebook,
+.instagram,
+.linkedin,
+.drrible {
+  transition-duration: 0.5s;
+}
+.nav-home:hover,
+.nav-about:hover,
+.nav-contact:hover,
+.nav-twitter:hover,
+.nav-facebook:hover,
+.nav-instagram:hover,
+.nav-linkedin:hover,
+.nav-drrible:hover,
+.twitter:hover,
+.facebook:hover,
+.instagram:hover,
+.linkedin:hover,
+.drrible:hover {
+  opacity: 0.72;
+}
+.dot {
+  display: inline-block;
+  position: relative;
+  top: 8.8px;
+  margin-left: 1049.3px;
+  background-color: #f4fa94;
+  padding: 2.5px;
+  border-radius: 50%;
+}
+
+.sayhi {
+  color: #f4fa94;
+}
+hr {
+  width: 88.8%;
+  opacity: 0.5;
+  transform: scaleY(0.3);
+  margin: auto;
+  max-width: 1230px;
+  margin-top: 12px;
+}
+.section-b {
+  text-align: center;
+  font-size: 33px;
+  padding: 80px;
+  margin: auto;
+  max-width: 1230px;
+  opacity: 0.72;
+  font-weight: 500;
+  line-height: 40px;
+}
+.dot1 {
+  background-color: #f4fa94;
+  padding: 5px;
+  border-radius: 50%;
+  max-width: 0px;
+  margin: auto;
+  position: relative;
+  right: 578px;
+  top: 29px;
+}
+.section-c {
+  display: flex;
+  width: auto;
+  position: relative;
+  font-size: 40px;
+  margin: auto;
+  max-width: 1230px;
+  left: 50px;
+  font-weight: 500;
+}
+.content1 {
+  height: 300px;
+  padding-top: 150px;
+  letter-spacing: 0.015em;
+  text-transform: none;
+}
+.section-c1 {
+  width: 580px;
+  margin: auto;
+  max-width: 1230px;
+  position: relative;
+  bottom: 30px;
+  left: 300px;
+  font-size: 28px;
+}
+.devider {
+  margin-right: 90px;
+  opacity: 0.35;
+  transform: scaleY(0.3);
+}
+.section-c2 {
+  display: grid;
+  width: 580px;
+  margin: auto;
+  max-width: 1230px;
+  position: relative;
+  bottom: 60px;
+  left: 300px;
+}
+.twitter,
+.facebook,
+.instagram,
+.linkedin,
+.drrible {
+  font-weight: 500;
+  font-size: 32px;
+  padding: 25px;
+  padding-bottom: 33px;
+}
+.e11h {
+  opacity: 0.4;
+  transform: scaleY(0.2);
+}
+.content2 {
+  height: 550px;
+  padding-top: 150px;
+  letter-spacing: 0.015em;
+  text-transform: none;
+}
+.inset-card {
+  background-color: #ffffff0f;
+  margin: auto;
+  padding: 80px 64px;
+  max-width: 1230px;
+  width: 1000px;
+  height: 500px;
+  text-align: center;
+  font-size: 52px;
+  border-radius: 3%;
+}
+.inset-card-text {
+  margin-top: 92px;
+  font-size: 96px;
+  font-weight: 500;
+}
+.i {
+  color: #f4fa94;
+  margin-top: 20px;
+  font-size: 64px;
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+}
+
+/* Small Screens */
+
+@media (min-width: 768px) {
+}
+
+/* Medium Screens */
+
+@media (min-width: 992px) {
+}
+
+/* Large Screens */
+
+@media (min-width: 1200px) {
+}
+
+/* Custom */
+
+@media (max-width: 1199px) {
+}

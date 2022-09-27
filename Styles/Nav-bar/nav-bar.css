@@ -1,0 +1,45 @@
+body {
+  position: relative;
+  background-color: #0a0a09;
+  color: white;
+  font-family: "Clash Display", sans-serif;
+}
+.header {
+  position: sticky;
+  margin-top: -15px;
+  margin: auto;
+  max-width: 1230px;
+  z-index: 1;
+}
+.header img {
+  margin-left: 20px;
+  margin-top: 39px;
+  transition-duration: 0.5s;
+}
+img:hover {
+  opacity: 0.72;
+}
+.navbar {
+  width: 100%;
+  position: fixed;
+  background-color: rgba(10, 10, 9, 0.9);
+  /* background-color: rgba(10, 10, 9, 255); */
+  margin: auto;
+  margin-top: -20px;
+  max-width: 1230px;
+}
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin-top: -28px;
+  margin-left: 912px;
+  transform: scale(1.00999999999999999, 1);
+}
+li {
+  margin-right: 41px;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}

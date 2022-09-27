@@ -1,0 +1,52 @@
+.footer {
+  margin: auto;
+  max-width: 1230px;
+  height: 450px;
+  padding: 20px;
+}
+.Logo {
+  margin-top: 25px;
+  margin-left: 20px;
+}
+.nav-footer {
+  list-style: none;
+  margin: auto;
+  max-width: 1230px;
+  line-height: 2;
+  position: relative;
+  float: right;
+  top: 18px;
+  right: 535px;
+  font-weight: 500;
+  line-height: 43px;
+}
+.nav-footer a {
+  font-size: 15px;
+}
+.nav-social {
+  list-style: none;
+  margin: auto;
+  max-width: 1230px;
+  line-height: 2;
+  position: relative;
+  float: right;
+  top: 18px;
+  right: 155px;
+  font-weight: 500;
+  line-height: 43px;
+}
+.nav-social a {
+  font-size: 15px;
+}
+.owner {
+  position: relative;
+  padding: 20px;
+  color: gray;
+  font-weight: 500;
+}
+.profile {
+  opacity: 0.72;
+}
+.profile:hover {
+  opacity: 0.4;
+}
