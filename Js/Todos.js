@@ -1,25 +1,12 @@
-let input = document.querySelector(".Input");
-let submit = document.querySelector(".Add");
 let taskdiv = document.querySelector(".Tasks");
 let tasksCount = document.querySelector(".tasks-count span");
 let tasksCompleted = document.querySelector(".tasks-completed span");
 let tasksactive = document.querySelector(".tasks-active span");
 
-// Empty Array To Store The Tasks
-let arrayOfTasks = [];
-
 if (localStorage.getItem("Tasks")) {
   arrayOfTasks = JSON.parse(localStorage.getItem("Tasks"));
 }
 getDataToLocalStorageFrom();
-
-submit.onclick = function () {
-  if (input.value !== "") {
-    addTaskToArray(input.value); // Add Task To Array Of Tasks
-    CalculateTasks();
-    input.value = ""; // Empty Input Field
-  }
-};
 
 taskdiv.addEventListener("click", (e) => {
   // Delete Button
@@ -37,25 +24,12 @@ taskdiv.addEventListener("click", (e) => {
     toggleStatusTaskWith(e.target.parentElement.getAttribute("Task-name"));
     // Toggle Done Class\
     e.target.classList.toggle("done");
+    window.onload = deleteTaskFromlocalStorage(
+      e.target.parentElement.getAttribute("Task-name")
+    );
   }
   CalculateTasks();
-  if (e.target.classList.contains("Upd")) {
-    console.log(e.target.parentElement.getAttribute("Task-name"));
-  }
 });
-
-function addTaskToArray(taskText) {
-  const task = {
-    id: Date.now(),
-    title: taskText,
-    completed: false,
-  };
-  arrayOfTasks.push(task);
-  //  Add Tasks to page
-  addElementsToPageFrom(arrayOfTasks);
-  // Add task to local Storage
-  addDataToLocalStorageFrom(arrayOfTasks);
-}
 
 function addElementsToPageFrom(arrayOfTasks) {
   taskdiv.innerHTML = "";
@@ -79,9 +53,10 @@ function addElementsToPageFrom(arrayOfTasks) {
     let span1 = document.createElement("span");
     span1.className = "Upd";
     span1.appendChild(document.createTextNode("Update"));
+    div.appendChild(span1);
+
     // Append Button To Main Div
     div.appendChild(completed);
-    div.appendChild(span1);
     div.appendChild(span);
     // Add Task Div To Tasks Container
     taskdiv.appendChild(div);
