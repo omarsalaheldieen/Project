@@ -5,6 +5,18 @@ let tasksCount = document.querySelector(".tasks-count span");
 let tasksCompleted = document.querySelector(".tasks-completed span");
 let tasksactive = document.querySelector(".tasks-active span");
 
+let daaa = window.localStorage.getItem("state");
+console.log(typeof daaa);
+async function funcName(url) {
+  const response = await fetch(url);
+  var data = await response.json();
+  const { author, WinstonChurchill } = data;
+  document.querySelector(".Container-Section-b").textContent = author;
+}
+if (daaa === `1`) {
+  funcName("https://api.quotable.io/random?tags=history|civil-rights");
+}
+
 // Empty Array To Store The Tasks
 let arrayOfTasks = [];
 
@@ -37,6 +49,9 @@ taskdiv.addEventListener("click", (e) => {
     toggleStatusTaskWith(e.target.parentElement.getAttribute("Task-name"));
     // Toggle Done Class\
     e.target.classList.toggle("done");
+    window.onload = deleteTaskFromlocalStorage(
+      e.target.parentElement.getAttribute("Task-name")
+    );
   }
   CalculateTasks();
   if (e.target.classList.contains("Upd")) {

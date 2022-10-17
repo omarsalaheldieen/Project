@@ -46,9 +46,39 @@
             <p class="TextReset">Reset Tasks</p>
             <span class="Reomveall">Reset</span>
           </div>
+          <div class="On">
+            <span>ON/Off</span>
+            <!-- Rounded switch -->
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
+    <script>
+      init();
+      function init() {
+        var onclick = changeContent();
+        var ltsg = document.querySelector(".slider");
+        ltsg.addEventListener("click", onclick, true);
+      }
+      var state = localStorage.getItem("state");
+      function changeContent() {
+        var count = 0;
+        var next = function () {
+          if (count === 1) {
+            localStorage.setItem("state", count);
+            count = 0;
+          } else {
+            localStorage.setItem("state", count);
+            count++;
+          }
+        };
+        return next;
+      }
+    </script>
     <script src="../Js/Settings.js"></script>
   </body>
 </html>
