@@ -66,14 +66,14 @@
       }
       var state = localStorage.getItem("state");
       function changeContent() {
-        var count = 0;
+        var count = 1;
         var next = function () {
           if (count === 1) {
             localStorage.setItem("state", count);
             count = 0;
           } else {
             localStorage.setItem("state", count);
-            count++;
+            count = 1;
           }
         };
         return next;

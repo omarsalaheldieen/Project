@@ -5,10 +5,3 @@ taskdiv.addEventListener("click", (e) => {
     window.localStorage.clear();
   }
 });
-// window.localStorage.setItem("Tasks", JSON.stringify(arrayOfTasks));
-let button = document.querySelector(".slider");
-
-window.localStorage.setItem("power", button);
-button.addEventListener("click", function (params) {
-  console.log(button);
-});

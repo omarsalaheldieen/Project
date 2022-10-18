@@ -54,10 +54,21 @@ taskdiv.addEventListener("click", (e) => {
     );
   }
   CalculateTasks();
+  // Update the Tasks
   if (e.target.classList.contains("Upd")) {
-    console.log(e.target.parentElement.getAttribute("Task-name"));
+    if (input.value !== "") {
+      toggleStatusTaskWith1(e.target.parentElement.getAttribute("Task-name")); // Add Task To Array Of Tasks
+      input.value = "";
+    }
+    getDataToLocalStorageFrom();
   }
 });
+
+// function addTextbox(event) {
+//   var input = document.createElement("input");
+//   input.setAttribute("type", "text");
+//   document.querySelector(".task").appendChild(input);
+// }
 
 function addTaskToArray(taskText) {
   const task = {
@@ -81,6 +92,7 @@ function addElementsToPageFrom(arrayOfTasks) {
       div.className = "task done";
     }
     div.setAttribute("Task-name", task.id);
+    div.setAttribute("Task-update-name", task.title);
     div.appendChild(document.createTextNode(task.title));
     //create complete button
     let completed = document.createElement("span");
@@ -121,7 +133,14 @@ function deleteTaskFromlocalStorage(taskId) {
   arrayOfTasks = arrayOfTasks.filter((task) => task.id != taskId);
   addDataToLocalStorageFrom(arrayOfTasks);
 }
-
+function toggleStatusTaskWith1(taskId) {
+  for (let i = 0; i < arrayOfTasks.length; i++) {
+    if (arrayOfTasks[i].id == taskId) {
+      arrayOfTasks[i].title = input.value;
+    }
+  }
+  addDataToLocalStorageFrom(arrayOfTasks);
+}
 function toggleStatusTaskWith(taskId) {
   for (let i = 0; i < arrayOfTasks.length; i++) {
     if (arrayOfTasks[i].id == taskId) {
