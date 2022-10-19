@@ -4,14 +4,13 @@ let taskdiv = document.querySelector(".Tasks");
 let tasksCount = document.querySelector(".tasks-count span");
 let tasksCompleted = document.querySelector(".tasks-completed span");
 let tasksactive = document.querySelector(".tasks-active span");
-
 let daaa = window.localStorage.getItem("state");
-console.log(typeof daaa);
+
 async function funcName(url) {
   const response = await fetch(url);
   var data = await response.json();
-  const { author, WinstonChurchill } = data;
-  document.querySelector(".Container-Section-b").textContent = author;
+  const { author, content } = data;
+  document.querySelector(".Container-Section-b").textContent = content;
 }
 if (daaa === `1`) {
   funcName("https://api.quotable.io/random?tags=history|civil-rights");
@@ -20,6 +19,7 @@ if (daaa === `1`) {
 // Empty Array To Store The Tasks
 let arrayOfTasks = [];
 
+// Check if the Local storage has the Tasks
 if (localStorage.getItem("Tasks")) {
   arrayOfTasks = JSON.parse(localStorage.getItem("Tasks"));
 }
@@ -49,16 +49,13 @@ taskdiv.addEventListener("click", (e) => {
     toggleStatusTaskWith(e.target.parentElement.getAttribute("Task-name"));
     // Toggle Done Class\
     e.target.classList.toggle("done");
-    window.onload = deleteTaskFromlocalStorage(
-      e.target.parentElement.getAttribute("Task-name")
-    );
   }
   CalculateTasks();
   // Update the Tasks
   if (e.target.classList.contains("Upd")) {
     if (input.value !== "") {
-      toggleStatusTaskWith1(e.target.parentElement.getAttribute("Task-name")); // Add Task To Array Of Tasks
-      input.value = "";
+      Updatethetask(e.target.parentElement.getAttribute("Task-name")); // Add Task To Array Of Tasks
+      input.value = ""; // Empty Input Field
     }
     getDataToLocalStorageFrom();
   }
@@ -116,10 +113,12 @@ function addElementsToPageFrom(arrayOfTasks) {
   });
 }
 
+// Store the Data in the Local Storage
 function addDataToLocalStorageFrom(arrayOfTasks) {
   window.localStorage.setItem("Tasks", JSON.stringify(arrayOfTasks));
 }
 
+// Get the data from local storgage
 function getDataToLocalStorageFrom() {
   let Data = window.localStorage.getItem("Tasks");
   if (Data) {
@@ -129,18 +128,25 @@ function getDataToLocalStorageFrom() {
   CalculateTasks();
 }
 
+// Delete the Task from the local storage
 function deleteTaskFromlocalStorage(taskId) {
   arrayOfTasks = arrayOfTasks.filter((task) => task.id != taskId);
+  // then put the new data in local storage
   addDataToLocalStorageFrom(arrayOfTasks);
 }
-function toggleStatusTaskWith1(taskId) {
+
+// Update the task from the local storage
+function Updatethetask(taskId) {
   for (let i = 0; i < arrayOfTasks.length; i++) {
     if (arrayOfTasks[i].id == taskId) {
       arrayOfTasks[i].title = input.value;
     }
   }
+  // then put the new data in local storage
   addDataToLocalStorageFrom(arrayOfTasks);
 }
+
+// Change the state of completed the Task from the local storage
 function toggleStatusTaskWith(taskId) {
   for (let i = 0; i < arrayOfTasks.length; i++) {
     if (arrayOfTasks[i].id == taskId) {
@@ -148,7 +154,7 @@ function toggleStatusTaskWith(taskId) {
         ? (arrayOfTasks[i].completed = true)
         : (arrayOfTasks[i].completed = false);
     }
-  }
+  } // then put the new data in local storage
   addDataToLocalStorageFrom(arrayOfTasks);
 }
 // Function To calculate tasks
