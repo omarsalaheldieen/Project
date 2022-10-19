@@ -68,6 +68,9 @@ taskdiv.addEventListener("click", (e) => {
   tasksCompleted.innerHTML = document.querySelectorAll(
     `.Completed-tasks .done`
   ).length;
+  tasksCount.innerHTML =
+    document.querySelectorAll(`.Tasks .task`).length +
+    document.querySelectorAll(`.Completed-tasks .done`).length;
 });
 
 function addElementsToPageFrom(arrayOfTasks) {
