@@ -145,6 +145,9 @@ function getDataToLocalStorageFrom() {
   tasksCompleted.innerHTML = document.querySelectorAll(
     `.Completed-tasks .done`
   ).length;
+  tasksCount.innerHTML =
+    document.querySelectorAll(`.Tasks .task`).length +
+    document.querySelectorAll(`.Completed-tasks .done`).length;
 }
 
 // Delete the Task from the local storage
