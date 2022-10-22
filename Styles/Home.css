@@ -99,6 +99,7 @@ body {
   background-color: #f7f7f7;
 }
 .Container .Tasks .done {
+  opacity: 0.5;
 }
 .Tasks .task .comp {
   font-weight: bold;

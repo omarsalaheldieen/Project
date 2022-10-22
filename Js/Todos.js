@@ -19,18 +19,26 @@ taskCompleted.addEventListener("click", (e) => {
     );
     CalculateTasks();
   }
+  tasksCompleted.innerHTML = document.querySelectorAll(
+    `.Completed-tasks .done`
+  ).length;
+  tasksCount.innerHTML =
+    document.querySelectorAll(`.Tasks .task`).length +
+    document.querySelectorAll(`.Completed-tasks .done`).length;
 });
 
 taskCompleted.addEventListener("click", (e) => {
   if (e.target.classList.contains("uncomp")) {
+    //remove it from local storage
     toggleStatusTaskWith(e.target.parentElement.getAttribute("Task-name"));
     e.target.parentElement.remove();
     if (e.target.parentElement.getAttribute("Task-state")) {
+      // Remove Element From Page
       e.target.parentElement.remove();
+      // get the datanew from local storage
       getDataToLocalStorageFrom();
     }
   }
-  //calculate the completed tasks
 });
 
 taskdiv.addEventListener("click", (e) => {
@@ -50,10 +58,10 @@ taskdiv.addEventListener("click", (e) => {
     // Toggle Done Class\
     e.target.classList.toggle("done");
     if (e.target.parentElement.getAttribute("Task-state")) {
+      // Remove Element From Page
       e.target.parentElement.remove();
       getDataToLocalStorageFrom();
     }
-    console.log(document.querySelectorAll(`.Completed-tasks .done`).length);
   }
   CalculateTasks();
   // Update the Tasks
@@ -77,6 +85,7 @@ function addElementsToPageFrom(arrayOfTasks) {
   taskdiv.innerHTML = "";
   taskCompleted.innerHTML = "";
   arrayOfTasks.forEach((task) => {
+    // check if task is completed or not
     if (task.completed == false) {
       let div = document.createElement("div");
       div.className = "task";
@@ -104,7 +113,9 @@ function addElementsToPageFrom(arrayOfTasks) {
       div.appendChild(span);
       // Add Task Div To Tasks Container
       taskdiv.appendChild(div);
-    } else {
+    }
+    // check if task is completed or not
+    else {
       let div = document.createElement("div");
       div.className = "task";
       if (task.completed) {
@@ -130,6 +141,7 @@ function addElementsToPageFrom(arrayOfTasks) {
   });
 }
 
+//add the data to local storage from array of tasks
 function addDataToLocalStorageFrom(arrayOfTasks) {
   window.localStorage.setItem("Tasks", JSON.stringify(arrayOfTasks));
 }
@@ -176,6 +188,7 @@ function toggleStatusTaskWith(taskId) {
         : (arrayOfTasks[i].completed = false);
     }
   }
+  // then put the new data in local storage
   addDataToLocalStorageFrom(arrayOfTasks);
 }
 // Function To calculate tasks
